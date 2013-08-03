@@ -1,0 +1,28 @@
+{
+  "name": "atomify",
+  "version": "0.0.1",
+  "description": "Atomic web development tool - keep all your templates, css, and js for each component together in one `atom`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "css",
+    "browserify",
+    "rework",
+    "handlebars"
+  ],
+  "author": "techwraith",
+  "license": "MIT",
+  "readmeFilename": "readme.md",
+  "dependencies": {
+    "browserify": "~2.26.0",
+    "handlebars-runtime": "~1.0.12",
+    "hbsfy": "~0.1.5",
+    "rework": "~0.17.3",
+    "brfs": "0.0.6",
+    "npm-css": "~0.2.1",
+    "rework-vars": "~1.0.1"
+  }
+}
