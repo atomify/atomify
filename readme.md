@@ -5,7 +5,7 @@ An atomic web development tool - keep all your templates, css, and js for each c
 
 ### Examples
 
-```
+```js
 var atomify = require('atomify')
   , http = require('http')
 
@@ -42,6 +42,6 @@ console.log('Server running at http://localhost:8080/');
 
 Installing via npm is easy:
 
-```
+```bash
 npm install atomify
 ```
