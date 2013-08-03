@@ -1,4 +1,6 @@
 var browserify = require('browserify')
+  , hbsfy      = require('hbsfy')
+  , brfs       = require('brfs')
   , npmcss     = require('npm-css')
   , rework     = require('rework')
   , variables  = require('rework-vars')
@@ -27,8 +29,8 @@ module.exports = function (opts) {
 
   , js: function (req, resp) {
       var bundle = browserify([opts.js.entry])
-      bundle.transform('hbsfy')
-      bundle.transform('brfs')
+      bundle.transform(hbsfy)
+      bundle.transform(brfs)
       bundle.bundle({debug: opts.debug || false}, function (e, src) {
         if (e) return error(resp, e);
         resp.setHeader('content-type', 'text/javascript')
