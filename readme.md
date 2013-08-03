@@ -1,7 +1,7 @@
 Atomify
 ===============
 
-An atomic web development tool - keep all your templates, css, and js for each component together in one node module.
+An atomic web development tool - keep all your templates, css, and js for each node module together.
 
 ### Examples
 
