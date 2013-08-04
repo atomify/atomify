@@ -3,6 +3,12 @@ Atomify
 
 An atomic web development tool - keep all your templates, css, and js for each node module together.
 
+### Description
+
+Atomify provides two http handler functions to bundle js and css from node modules.
+
+For the js bundle it uses [atomify-js](http://github.com/techwraith/atomify-js) and for the css bundle it uses [atomify-css](http://github.com/techwraith/atomify-css).
+
 ### Examples
 
 ```js
