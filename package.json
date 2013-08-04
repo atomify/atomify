@@ -1,6 +1,6 @@
 {
   "name": "atomify",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Atomic web development tool - keep all your templates, css, and js for each component together in one `atom`.",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,10 @@
   "dependencies": {
     "atomify-js": "0.0.2",
     "atomify-css": "0.0.1"
+  },
+  "peerDependencies": {
+    "brfs": "0.0.6",
+    "handlebars-runtime": "~1.0.12",
+    "hbsfy": "~0.1.5"
   }
 }
