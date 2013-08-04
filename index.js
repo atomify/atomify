@@ -1,12 +1,7 @@
-var browserify = require('browserify')
-  , hbsfy      = require('hbsfy')
-  , brfs       = require('brfs')
-  , npmcss     = require('npm-css')
-  , rework     = require('rework')
-  , variables  = require('rework-vars')
-  , path       = require('path')
+var js  = require('atomify-js')
+  , css = require('atomify-css')
 
-function error (resp, e) {
+function error (e, resp) {
 
   // Jaws-like router support
   if (typeof resp.error == 'function') return resp.error(e)
@@ -16,26 +11,23 @@ function error (resp, e) {
 
 }
 
+function respond (type, resp) {
+  return function (e, src) {
+    if (e) return error(e, resp)
+    resp.setHeader('content-type', 'text/'+type)
+    resp.end(src)
+  }
+}
+
 module.exports = function (opts) {
 
   return {
     css: function (req, resp) {
-      var file = npmcss(path.join(process.cwd(), opts.css.entry))
-      var css = rework(file)
-      css.use(variables(opts.css.variables))
-      resp.setHeader('content-type', 'text/css')
-      resp.end(css.toString())
+      css(opts.css, respond('css', resp));
     }
 
   , js: function (req, resp) {
-      var bundle = browserify([opts.js.entry])
-      bundle.transform(hbsfy)
-      bundle.transform(brfs)
-      bundle.bundle({debug: opts.debug || false}, function (e, src) {
-        if (e) return error(resp, e);
-        resp.setHeader('content-type', 'text/javascript')
-        resp.end(src)
-      })
+      js(opts.js, respond('javascript', resp));
     }
 
   }
