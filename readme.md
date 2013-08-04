@@ -51,3 +51,5 @@ Installing via npm is easy:
 ```bash
 npm install atomify
 ```
+
+If you'd like a CLI so that you can build atomify bundles, use [atomify-cli](http://github.com/techwraith/atomify-cli).
