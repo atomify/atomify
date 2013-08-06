@@ -11,6 +11,8 @@ For the js bundle it uses [atomify-js](http://github.com/techwraith/atomify-js) 
 
 ### Examples
 
+To see a real example app, check out [atomify-example](http://github.com/techwraith/atomify-example).
+
 ```js
 var atomify = require('atomify')
   , http = require('http')
