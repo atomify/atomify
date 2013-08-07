@@ -1,6 +1,6 @@
 {
   "name": "atomify",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Atomic web development tool - keep all your templates, css, and js for each component together in one `atom`.",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,8 @@
   "license": "MIT",
   "readmeFilename": "readme.md",
   "dependencies": {
-    "atomify-js": "0.0.4",
-    "atomify-css": "0.0.1"
+    "atomify-js": "0.0.x",
+    "atomify-css": "0.0.x"
   },
   "peerDependencies": {
     "brfs": "0.0.6",
