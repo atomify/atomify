@@ -1,5 +1,6 @@
 var atomify = require('../')
   , http = require('http')
+  , path = require('path')
 
 var cssVariables = {
   background: '#f00'
@@ -8,6 +9,9 @@ var cssVariables = {
 var atom = atomify({
   js: {
     entry: './entry.js'
+  , shim: {
+      jquery: { path: path.resolve('./jquery.js'), exports: '$' }
+    }
   }
 , css: {
     entry: './entry.css'
