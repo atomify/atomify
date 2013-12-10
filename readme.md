@@ -16,6 +16,7 @@ To see a real example app, check out [atomify-example](http://github.com/techwra
 ```js
 var atomify = require('atomify')
   , http = require('http')
+  , path = require('path')
 
 var cssVariables = {
   background: '#f00'
@@ -23,10 +24,10 @@ var cssVariables = {
 
 var atom = atomify({
   js: {
-    entry: './entry.js'
+    entry: path.join(__dirname, 'entry.js')
   }
 , css: {
-    entry: './entry.css'
+    entry: path.join(__dirname, 'entry.css')
   , variables: cssVariables
   }
 });
