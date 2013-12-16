@@ -47,6 +47,60 @@ http.createServer(function (req, res) {
 console.log('Server running at http://localhost:8080/');
 ```
 
+if you don't want to use the http helpers, just use the `atomify-css` and `atomify-js` packages:
+
+index.js
+```js
+var js = require('atomify-js')
+  , css = require('atomify-css')
+
+var opts = {
+  entry: './entry.js'
+, shim: {
+    jquery: { path: './jquery.js', exports: '$' }
+  }
+, debug: true // default: `false`
+}
+
+js(opts, function (err, src) {
+  
+  // do something with the src
+  
+})
+
+var opts = {
+  entry: './entry.css'
+, variables: {
+    bg: 'black'
+  }
+}
+
+css(opts, function (err, src) {
+
+  // do something with the src
+
+})
+```
+
+entry.js
+```js
+var module = require('module')
+  , template = require('template.html.hbs')
+  
+template({param: 'param'})
+```
+
+entry.css
+```css
+@import "./global.css";
+@import "combobox";
+@import "./inputs.css";
+
+body {
+  background: var(bg);
+}
+```
+
 ### Install
 
 Installing via npm is easy:
