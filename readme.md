@@ -53,8 +53,9 @@ index.js
 ```js
 var js = require('atomify-js')
   , css = require('atomify-css')
+  , opts = {}
 
-var opts = {
+opts.js = {
   entry: './entry.js'
 , shim: {
     jquery: { path: './jquery.js', exports: '$' }
@@ -62,20 +63,20 @@ var opts = {
 , debug: true // default: `false`
 }
 
-js(opts, function (err, src) {
+js(opts.css, function (err, src) {
   
   // do something with the src
   
 })
 
-var opts = {
+opts.css = {
   entry: './entry.css'
 , variables: {
     bg: 'black'
   }
 }
 
-css(opts, function (err, src) {
+css(opts.css, function (err, src) {
 
   // do something with the src
 
