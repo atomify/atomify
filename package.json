@@ -21,7 +21,7 @@
     "atomify-css": "0.0.x"
   },
   "peerDependencies": {
-    "brfs": "0.0.6",
+    "brfs": "~0.0.8",
     "handlebars-runtime": "~1.0.12",
     "hbsfy": "~0.1.5"
   }
