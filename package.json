@@ -17,12 +17,12 @@
   "license": "MIT",
   "readmeFilename": "readme.md",
   "dependencies": {
-    "atomify-js": "0.0.10",
-    "atomify-css": "0.0.6"
+    "atomify-js": "~0.0.10",
+    "atomify-css": "~0.0.6"
   },
   "peerDependencies": {
-    "brfs": "~0.0.8",
+    "brfs": "~0.0.9",
     "handlebars-runtime": "~1.0.12",
-    "hbsfy": "~0.1.5"
+    "hbsfy": "~1.3.1"
   }
 }
