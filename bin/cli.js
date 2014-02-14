@@ -6,11 +6,6 @@ var js = require('atomify-js')
   , writer = require('write-to-path')
   , argv = require('subarg')(process.argv.slice(2))
 
-function write (path) {
-  return function (err, src) {
-    if (path) fs.writeFileSync(path, src, 'utf8');
-  }
-}
 
 var co = argv.c || argv.css
 if (co) {
