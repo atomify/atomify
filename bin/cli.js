@@ -17,8 +17,9 @@ if (co) {
   co.variables = co.v || co.variables
   // TODO: I think we could support plugins if -css checked for strings and require()-ed them
   //co.plugins = co.p || co.plugins
-  co.output = co.o || co.output || (output ? output + '.css' : null)
+  co.output = co.o || co.output
   if (co._ && co._.length === 2) co.output = co._[1]
+  if (!co.output && output) co.output = output.indexOf('.css') ? output : output + '.css'
 
   if (!co.output) {
     console.error('No output path provided for CSS bundle!')
@@ -37,8 +38,9 @@ if (jo) {
   jo.debug = jo.d || jo.debug
   jo.watch = jo.w || jo.watch
   jo.transforms = jo.t || jo.transforms
-  jo.output = jo.o || jo.output || (output ? output + '.js' : null)
+  jo.output = jo.o || jo.output
   if (jo._ && jo._.length === 2) jo.output = jo._[1]
+  if (!jo.output && output) jo.output = output.indexOf('.js') ? output : output + '.js'
 
   if (!jo.output) {
     console.error('No output path provided for JS bundle!')
