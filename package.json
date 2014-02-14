@@ -3,6 +3,9 @@
   "version": "0.0.13",
   "description": "Atomic web development tool - keep all your templates, css, and js for each component together in one `atom`.",
   "main": "index.js",
+  "bin": {
+    "atomify": "bin/cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +24,8 @@
   "readmeFilename": "readme.md",
   "dependencies": {
     "atomify-js": "~0.3.0",
-    "atomify-css": "~0.2.1"
+    "atomify-css": "~0.2.1",
+    "subarg": "0.0.1",
+    "write-to-path": "~0.1.0"
   }
 }
