@@ -6,6 +6,7 @@ var js = require('atomify-js')
   , writer = require('write-to-path')
   , argv = require('subarg')(process.argv.slice(2))
 
+var output = argv.o || argv.output
 
 var co = argv.c || argv.css
 if (co) {
@@ -16,7 +17,8 @@ if (co) {
   co.variables = co.v || co.variables
   // TODO: I think we could support plugins if -css checked for strings and require()-ed them
   //co.plugins = co.p || co.plugins
-  co.output = co.o || co.output
+  co.output = co.o || co.output || (output ? output + '.css' : null)
+  if (co._ && co._.length === 2) co.output = co._[1]
 
   if (!co.output) {
     console.error('No output path provided for CSS bundle!')
@@ -35,9 +37,10 @@ if (jo) {
   jo.debug = jo.d || jo.debug
   jo.watch = jo.w || jo.watch
   jo.transforms = jo.t || jo.transforms
-  jo.output = jo.o || jo.output
+  jo.output = jo.o || jo.output || (output ? output + '.js' : null)
+  if (jo._ && jo._.length === 2) jo.output = jo._[1]
 
-  if (!co.output) {
+  if (!jo.output) {
     console.error('No output path provided for JS bundle!')
     process.exit(1)
   }
