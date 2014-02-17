@@ -110,4 +110,4 @@ Installing via npm is easy:
 npm install atomify
 ```
 
-If you'd like a CLI so that you can build atomify bundles, use [atomify-cli](http://github.com/techwraith/atomify-cli).
+atomify can also be used as a CLI. Run `atomify --help` for details.
