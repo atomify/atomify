@@ -1,0 +1,5 @@
+.entry {
+  color: red;
+}
+
+@import "./dep";

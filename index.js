@@ -1,31 +1,20 @@
-var js  = require('atomify-js')
+var js = require('atomify-js')
   , css = require('atomify-css')
+  , http = require('./http')
 
-module.exports = function (opts) {
+module.exports = atomify
 
-  function error (e, resp) {
+function atomify (opts, cb) {
+  if (opts.css) css(opts.css, callback(cb, 'css'))
+  if (opts.js) js(opts.js, callback(cb, 'js'))
+}
 
-    // Jaws-like router support
-    if (typeof resp.error == 'function') return resp.error(e)
+atomify.js = js
+atomify.css = css
+atomify.http = http
 
-    resp.writeHead(500, {'Content-Type': 'text/plain'})
-    resp.end(e.message)
-
-    if (opts.js.debug) console.log(e.stack)
-
+function callback (cb, type) {
+  return function (err, src) {
+    cb(err, src, type)
   }
-
-  function respond (type, resp) {
-    return function (e, src) {
-      if (e) return error(e, resp)
-      resp.setHeader('content-type', 'text/'+type)
-      resp.end(src)
-    }
-  }
-
-  return {
-    css: function (req, resp) { css(opts.css, respond('css', resp)) }
-  , js: function (req, resp) { js(opts.js, respond('javascript', resp)) }
-  }
-
 }
