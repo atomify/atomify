@@ -1,0 +1,41 @@
+Usage: atomify -j [ JS OPTIONS ] -c [ CSS OPTIONS ] COMMON OPTIONS
+
+You can do basically everything with this CLI that you can do
+with the atomify module in code. Debug and output options
+can be provided as COMMON options to have them apply to both
+JS and CSS builds, or you can define them specifically for one
+or the other. All other flags must be provided directly using subarg syntax.
+
+Common Options:
+
+       --output, -o  Write both bundles to a file with this name.
+                     Specifying bundle would produce bundle.js and bundle.css
+                     Can also be supplied directly to --js or --css option.
+
+         --debug -d  Enable source maps for both JS and CSS.
+                     Can also be supplied directly to --js or --css option.
+
+         --help, -h  Show this message
+
+      --version, -v  Show the current version
+
+JavaScript Options:
+
+--js, -j [ JS OPTIONS ] Options not mapped below will be passed on to Browserify
+
+           --entry, -e  Entry point(s) of your app
+
+           --watch, -w  Bundle and start watching for changes (via watchify)
+
+      --transforms, -t  Use a transform module on top-level files. Same as Browserify -t option.
+
+CSS Options:
+
+--css, -c [ CSS OPTIONS ]
+
+       --variables, -v  Variables to pass to rework-vars
+
+         --plugins, -p  Plugin names to require() and pass to rework.use()
+
+        --compress, -c  Compress the CSS bundle
+

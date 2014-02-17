@@ -7,6 +7,8 @@ var cli = require('../lib/cli')
       , c: 'css'
       , o: 'output'
       , d: 'debug'
+      , h: 'help'
+      , v: 'version'
     }
   })
 
