@@ -19,7 +19,10 @@
     "rework",
     "handlebars"
   ],
-  "author": "techwraith",
+  "contributors": [
+    "Daniel Erickson <techwraithpdx@gmail.com> (http://techwraith.com/)",
+    "Ben Clinkinbeard <ben.clinkinbeard@gmail.com> (http://benclinkinbeard.com/)"
+  ],
   "license": "MIT",
   "readmeFilename": "readme.md",
   "dependencies": {
