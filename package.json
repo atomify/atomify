@@ -1,6 +1,6 @@
 {
   "name": "atomify",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Atomic web development tool - keep all your templates, css, and js for each component together in one `atom`.",
   "main": "index.js",
   "bin": {
