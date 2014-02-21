@@ -23,7 +23,7 @@
   "license": "MIT",
   "readmeFilename": "readme.md",
   "dependencies": {
-    "atomify-js": "~0.6.1",
+    "atomify-js": "~0.7.0",
     "atomify-css": "~0.5.0",
     "subarg": "0.0.1",
     "write-to-path": "~0.1.0",
