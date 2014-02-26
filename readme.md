@@ -1,113 +1,69 @@
 Atomify
 ===============
 
-An atomic web development tool - keep all your templates, css, and js for each node module together.
+Atomic web development - Combining the power of npm, Browserify, Rework and more to build small, fully encapsulated client side modules
 
-### Description
+## Description
 
-Atomify provides two http handler functions to bundle js and css from node modules.
+Atomify provides a centralized point of access to [atomify-js](http://github.com/techwraith/atomify-js) and [atomify-css](http://github.com/techwraith/atomify-css) both in code and on the command line. It also offers a live-bundling http server to make development a breeze.
 
-For the js bundle it uses [atomify-js](http://github.com/techwraith/atomify-js) and for the css bundle it uses [atomify-css](http://github.com/techwraith/atomify-css).
+## API
 
-### Examples
+Just like its constituent pieces, atomify takes an `opts` object and a `callback` function.
+
+### opts
+
+**opts.js** - Options to be passed to [atomify-js](https://github.com/techwraith/atomify-js#opts)
+
+**opts.css** - Options to be passed to [atomify-css](https://github.com/techwraith/atomify-css#opts)
+
+### callback
+
+Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third parameter to denote the type of bundle being provided. `cb(err, src, type)` where type is either `js` or `css`. Not called for bundle types where `opts.{type}.output` is specifed.
+
+### API Example
 
 To see a real example app, check out [atomify-example](http://github.com/techwraith/atomify-example).
 
 ```js
 var atomify = require('atomify')
-  , http = require('http')
-  , path = require('path')
 
-var cssVariables = {
-  background: '#f00'
-}
+var jsConfig = './entry.js' // shorthand for {entry: './entry.js'}
 
-var atom = atomify({
-  js: {
-    entry: path.join(__dirname, 'entry.js')
-  }
-, css: {
-    entry: path.join(__dirname, 'entry.css')
-  , variables: cssVariables
-  }
-});
-
-http.createServer(function (req, res) {
-
-  console.log('requesting', req.url)
-
-  if (req.url == '/style.css') atom.css(req, res)
-  else if (req.url == '/index.js') atom.js(req, res)
-  else {
-    res.writeHead(404, {'Content-Type': 'text/plain'});
-    res.end('Not Found\n');
-  }
-
-}).listen(8080);
-console.log('Server running at http://localhost:8080/');
-```
-
-if you don't want to use the http helpers, just use the `atomify-css` and `atomify-js` packages:
-
-index.js
-```js
-var js = require('atomify-js')
-  , css = require('atomify-css')
-  , opts = {}
-
-opts.js = {
-  entry: './entry.js'
-, shim: {
-    jquery: { path: './jquery.js', exports: '$' }
-  }
-, debug: true // default: `false`
-}
-
-js(opts.css, function (err, src) {
-  
-  // do something with the src
-  
-})
-
-opts.css = {
+var cssConfig = {
   entry: './entry.css'
-, variables: {
-    bg: 'black'
+  , variables: {
+    background: '#f00'
   }
 }
 
-css(opts.css, function (err, src) {
-
-  // do something with the src
-
-})
-```
-
-entry.js
-```js
-var module = require('module')
-  , template = require('template.html.hbs')
-  
-template({param: 'param'})
-```
-
-entry.css
-```css
-@import "./global.css";
-@import "combobox";
-@import "./inputs.css";
-
-body {
-  background: var(bg);
+function cb (err, src, type) {
+  if (type === 'js') {
+    // do something with JS bundle
+  } else {
+    // do something with CSS bundle
+  }
 }
+
+atomify({js: jsConfig, css: cssConfig}, cb);
 ```
 
-### Install
+## CLI
 
-Installing via npm is easy:
+Thanks to [subarg](https://github.com/substack/subarg), nearly everything you can do in code, you can do on the command line. JS options can be specified in a `--js, -j` subarg context and CSS options can be specified in a `--css, -c` subarg context.
+
+If you supply the `--debug, -d` or `--output, -o` args outside the `--js` and `--css` contexts they will apply to both JS and CSS bundles. When providing an `--output` argument that applies to both, omit the file extension and it will be applied correctly for you.
+
+Get a complete listing of options by running `atomify --help`
+
+### CLI Examples
+
+`atomify -j [ entry.js bundle.js ]`
+`atomify -j [ -e entry.js -e other.js -o bundle.js -d -w ]`
+`atomify -j [ entry.js -t funkify ] -c [ entry.css ] -o bundle`
+
+## Install
 
 ```bash
 npm install atomify
 ```
-
-atomify can also be used as a CLI. Run `atomify --help` for details.
