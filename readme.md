@@ -23,8 +23,6 @@ Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third
 
 ### API Example
 
-To see a real example app, check out [atomify-example](http://github.com/techwraith/atomify-example).
-
 ```js
 var atomify = require('atomify')
 
@@ -58,9 +56,11 @@ Get a complete listing of options by running `atomify --help`
 
 ### CLI Examples
 
-`atomify -j [ entry.js bundle.js ]`
-`atomify -j [ -e entry.js -e other.js -o bundle.js -d -w ]`
-`atomify -j [ entry.js -t funkify ] -c [ entry.css ] -o bundle`
+```bash
+atomify -j [ entry.js bundle.js ]
+atomify -j [ -e entry.js -e other.js -o bundle.js -d -w ]
+atomify -j [ entry.js -t funkify ] -c [ entry.css ] -o bundle
+```
 
 ## Install
 
