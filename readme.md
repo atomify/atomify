@@ -9,7 +9,7 @@ Atomify provides a centralized point of access to [atomify-js](http://github.com
 
 ## API
 
-Just like its constituent pieces, atomify takes an `opts` object and a `callback` function.
+Just like its constituent pieces, atomify is a function that takes an `opts` object and a `callback` function.
 
 ### opts
 
@@ -45,6 +45,10 @@ function cb (err, src, type) {
 
 atomify({js: jsConfig, css: cssConfig}, cb);
 ```
+
+### atomify.js and atomify.css
+
+As a convenience, you can access `atomify-js` via the `atomify.js` property and `atomify-css` via the `atomify.css` property.
 
 ## CLI
 
