@@ -9,6 +9,7 @@ var cli = require('../lib/cli')
       , d: 'debug'
       , h: 'help'
       , v: 'version'
+      , s: 'server'
     }
   })
 
