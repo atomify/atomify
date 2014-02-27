@@ -19,7 +19,7 @@ Just like its constituent pieces, atomify is a function that takes an `opts` obj
 
 ### callback
 
-Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third parameter to denote the type of bundle being provided. `cb(err, src, type)` where type is either `js` or `css`. Not called for bundle types where `opts.{type}.output` is specifed.
+Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third parameter to denote the type of bundle being provided. `cb(err, src, type)` where type is either `'js'` or `'css'`. Not called for bundle types where `opts.{type}.output` is specifed.
 
 ### API Example
 
