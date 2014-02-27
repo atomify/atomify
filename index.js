@@ -1,6 +1,6 @@
 var js = require('atomify-js')
   , css = require('atomify-css')
-  , http = require('./http')
+  , server = require('./lib/server')
 
 module.exports = atomify
 
@@ -11,7 +11,7 @@ function atomify (opts, cb) {
 
 atomify.js = js
 atomify.css = css
-atomify.http = http
+atomify.server = server
 
 function callback (cb, type) {
   return function (err, src) {
