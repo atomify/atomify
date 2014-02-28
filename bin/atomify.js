@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
-var cli = require('../lib/cli')
-  , argv = require('subarg')(process.argv.slice(2), {
+var path = require('path')
+  , cli = require('../lib/cli')
+  , args = process.argv.slice(2)
+  , argv = require('subarg')(args, {
     alias: {
       j: 'js'
       , c: 'css'
@@ -12,5 +14,7 @@ var cli = require('../lib/cli')
       , s: 'server'
     }
   })
+
+if (!args.length) argv = require(path.join(process.cwd(), 'package.json')).atomify;
 
 cli(argv)
