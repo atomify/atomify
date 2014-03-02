@@ -1,4 +1,4 @@
-Usage: atomify -j [ JS OPTIONS ] -c [ CSS OPTIONS ] COMMON OPTIONS
+Usage: atomify -j [ JS OPTIONS ] -c [ CSS OPTIONS ] -s [ SERVER OPTIONS ] COMMON OPTIONS
 
 You can do basically everything with this CLI that you can do
 with the atomify module in code. Debug and output options
@@ -38,4 +38,18 @@ CSS Options:
          --plugins, -p  Plugin names to require() and pass to rework.use()
 
         --compress, -c  Compress the CSS bundle
+
+Server Options:
+
+--server, -s [ SERVER OPTIONS ]
+
+       --port  Port to listen on. Default: 1337
+
+       --open  If provided, open the URL in your default browser
+
+       --path  The path to open. Appended to http://localhost:port
+
+        --url  Full URL to open instead of http://localhost:port/path
+
+         --st  Options to pass to st static file server
 
