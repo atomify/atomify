@@ -30,8 +30,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "atomify-js": "~0.7.0",
-    "atomify-css": "~0.5.0",
+    "atomify-js": "^1.0.0",
+    "atomify-css": "^1.0.0",
     "subarg": "0.0.1",
     "write-to-path": "~0.1.0",
     "st": "~0.3.1",
