@@ -29,7 +29,6 @@
     "Ben Clinkinbeard <ben.clinkinbeard@gmail.com> (http://benclinkinbeard.com/)"
   ],
   "license": "MIT",
-  "readmeFilename": "readme.md",
   "dependencies": {
     "atomify-js": "~0.7.0",
     "atomify-css": "~0.5.0",
