@@ -14,10 +14,15 @@
     "url": "https://github.com/Techwraith/atomify.git"
   },
   "keywords": [
-    "css",
+    "atomic",
+    "atomify",
+    "browser",
     "browserify",
-    "rework",
-    "handlebars"
+    "server",
+    "templates",
+    "css",
+	"less",
+    "rework"
   ],
   "contributors": [
     "Daniel Erickson <techwraithpdx@gmail.com> (http://techwraith.com/)",
