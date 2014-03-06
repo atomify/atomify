@@ -78,6 +78,29 @@ You can provide server-specific options in this field.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
 
+## package.json config
+
+In order to support atomify turtles all the way down, you can also specify your configuration in package.json. Simply recreate an `opts` object structure in JSON with atomify as the key. (Omit output properties if not a top level package.)
+
+```json
+"atomify": {
+  "js": {
+    "entry": "index.js",
+    "output": "dist/bundle.js"
+  },
+  "css": {
+    "entry": "index.css",
+    "plugins": [
+      ["rework-plugin-inline", "src/assets"],
+      "rework-default-unit"
+    ],
+    "output": "example/bundle.css"
+  }
+}
+```
+
+For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/Techwraith/atomify-css#packagejson-config) of the atomify-css README.
+
 ## CLI
 
 Thanks to [subarg](https://github.com/substack/subarg), nearly everything you can do in code, you can do on the command line. JS options can be specified in a `--js, -j` subarg context and CSS options can be specified in a `--css, -c` subarg context. Server options can be specified in a `--server, -s` subarg context.
@@ -95,6 +118,12 @@ atomify -j [ entry.js bundle.js ]
 atomify -j [ -e entry.js -e other.js -o bundle.js -d -w ]
 atomify -j [ entry.js -t funkify ] -c [ entry.css ] -o bundle
 atomify -j [ src/entry.js:bundle.js ] -c [ styles/entry.css:bundle.css ] --server [ --open ]
+```
+
+To use the configuration defined in package.json, run without args.
+
+```bash
+atomify
 ```
 
 ## Install
