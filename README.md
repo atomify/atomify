@@ -83,18 +83,20 @@ You can provide server-specific options in this field.
 In order to support atomify turtles all the way down, you can also specify your configuration in package.json. Simply recreate an `opts` object structure in JSON with atomify as the key. (Omit output properties if not a top level package.)
 
 ```json
-"atomify": {
-  "js": {
-    "entry": "index.js",
-    "output": "dist/bundle.js"
-  },
-  "css": {
-    "entry": "index.css",
-    "plugins": [
-      ["rework-plugin-inline", "src/assets"],
-      "rework-default-unit"
-    ],
-    "output": "example/bundle.css"
+{
+  "atomify": {
+    "js": {
+      "entry": "index.js",
+      "output": "dist/bundle.js"
+    },
+    "css": {
+      "entry": "index.css",
+      "plugins": [
+        ["rework-plugin-inline", "src/assets"],
+        "rework-default-unit"
+      ],
+      "output": "example/bundle.css"
+    }
   }
 }
 ```
