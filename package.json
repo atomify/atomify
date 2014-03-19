@@ -7,7 +7,7 @@
     "atomify": "bin/atomify.js"
   },
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js | tspec"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "open": "0.0.4"
   },
   "devDependencies": {
-    "tape": "~2.4.2"
+    "tape": "~2.4.2",
+    "tap-spec": "^0.1.5"
   }
 }
