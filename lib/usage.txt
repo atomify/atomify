@@ -43,13 +43,18 @@ Server Options:
 
 --server, -s [ SERVER OPTIONS ]
 
-       --port  Port to listen on. Default: 1337
+           --port  Port to listen on. Default: 1337
 
-       --open  If provided, open the URL in your default browser
+           --open  If provided, open the URL in your default browser
 
-       --path  The path to open. Appended to http://localhost:port
+           --path  The path to open. Appended to http://localhost:port
 
-        --url  Full URL to open instead of http://localhost:port/path
+            --url  Full URL to open instead of http://localhost:port/path
 
-         --st  Options to pass to st static file server
+    --live-reload  Watch files, reload on save. Watches HTML, JS and CSS files
+                   in process.cwd() by default. You can pass custom watch pattern
+                   array using subarg syntax. --live-reload [ **/*.js **/*.css ]
+                   Aliased as -l, pass --quiet to suppress file change logging.
+
+             --st  Options to pass to st static file server
 
