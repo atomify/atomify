@@ -56,5 +56,7 @@ Server Options:
                    array using subarg syntax. --live-reload [ **/*.js **/*.css ]
                    Aliased as -l, pass --quiet to suppress file change logging.
 
+                   The default port for the live-reload-server is 35729. If you want to run multiple servers, you can change this by passing --port=xxxx as a subarg.
+
              --st  Options to pass to st static file server
 
