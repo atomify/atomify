@@ -51,5 +51,14 @@ Server Options:
 
         --url  Full URL to open instead of http://localhost:port/path
 
+         --lr  Enable live reload support. Watches HTML, JS and CSS files
+               in process.cwd() by default. You can pass custom watch pattern
+               array using subarg syntax. --lr [ '**/*.js' '**/*.css' ]
+               Pass --quiet to suppress file change logging.
+
+               The default port for the live-reload server is 35729.
+               If you want to run multiple servers, you can change this
+               by passing --port as a subarg.
+
          --st  Options to pass to st static file server
 

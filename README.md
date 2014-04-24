@@ -76,6 +76,8 @@ You can provide server-specific options in this field.
 
 **opts.server.url** - Full URL to open instead of http://localhost:port/path
 
+**opts.server.lr** - Enable live-reload support. Watches HTML, JS, and CSS files in `process.cwd()` by default, can be overridden by passing glob patterns via subarg syntax `--lr [ '**/*.js' '**/*.css' ]`. Runs on 35729 by default, can be customized with `--port` subarg. Pass `--quiet` to suppress file change notifications.
+
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
 
 ## package.json config
