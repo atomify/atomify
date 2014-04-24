@@ -30,15 +30,16 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "atomify-js": "^1.0.0",
     "atomify-css": "^1.0.0",
-    "subarg": "0.0.1",
-    "write-to-path": "~0.1.0",
-    "st": "~0.3.1",
-    "open": "0.0.4",
-    "through": "^2.3.4",
+    "atomify-js": "^1.0.0",
+    "colors": "^0.6.2",
     "gaze": "^0.5.1",
-    "tiny-lr-fork": "0.0.5"
+    "open": "0.0.4",
+    "st": "~0.3.1",
+    "subarg": "0.0.1",
+    "through": "^2.3.4",
+    "tiny-lr-fork": "0.0.5",
+    "write-to-path": "~0.1.0"
   },
   "devDependencies": {
     "tape": "~2.4.2",
