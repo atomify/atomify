@@ -10,6 +10,7 @@ function atomify (opts, cb) {
 
   if (opts.css) css(opts.css, callback(cb, 'css'))
   if (opts.js) js(opts.js, callback(cb, 'js'))
+  if (opts.server) server(opts)
 }
 
 atomify.js = js
