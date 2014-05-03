@@ -8,7 +8,7 @@ function atomify (opts, cb) {
   if (opts.assets && opts.css) opts.css.assets = opts.assets
   if (opts.assets && opts.js) opts.js.assets = opts.assets
 
-  if (opts.server) server(opts)
+  if (opts.server) return server(opts)
   if (opts.css) css(opts.css, callback(cb, 'css'))
   if (opts.js) js(opts.js, callback(cb, 'js'))
 }
