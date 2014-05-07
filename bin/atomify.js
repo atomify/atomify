@@ -15,6 +15,4 @@ var path = require('path')
     }
   })
 
-if (!args.length) argv = require(path.join(process.cwd(), 'package.json')).atomify;
-
 cli(argv)
