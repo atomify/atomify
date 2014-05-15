@@ -18,7 +18,7 @@ atomify.css = css
 atomify.server = server
 
 function callback (cb, type) {
-  return function (err, src) {
-    cb(err, src, type)
+  return function (err, src, map) {
+    cb(err, src, type, map)
   }
 }

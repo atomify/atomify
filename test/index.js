@@ -24,6 +24,21 @@ test('js only', function (t) {
   })
 })
 
+test('minify js only', function (t) {
+  t.plan(3)
+
+  var jsCfgCpy = JSON.parse(JSON.stringify(jsCfg))
+    , mapFile = 'bundle.min.js.map.json'
+
+  jsCfgCpy.minify = mapFile
+
+  atomify({js: jsCfgCpy}, function (err, src, type, map) {
+    t.equal(src, read(jsf + 'bundle.min.js'))
+    t.equal(map, read(jsf + mapFile))
+    t.equal(type, 'js')
+  })
+})
+
 test('css only', function (t) {
   t.plan(2)
 
