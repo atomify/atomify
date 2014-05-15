@@ -33,13 +33,11 @@
     "atomify-css": "^1.0.0",
     "atomify-js": "^1.0.0",
     "browser-sync": "^0.9.1",
-    "colors": "^0.6.2",
     "gaze": "^0.5.1",
     "open": "0.0.4",
     "st": "~0.3.1",
     "subarg": "0.0.1",
     "through": "^2.3.4",
-    "tiny-lr-fork": "0.0.5",
     "write-to-path": "~0.1.0"
   },
   "devDependencies": {

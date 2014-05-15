@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var path = require('path')
-  , cli = require('../lib/cli')
+var cli = require('../lib/cli')
   , args = process.argv.slice(2)
   , argv = require('subarg')(args, {
     alias: {
