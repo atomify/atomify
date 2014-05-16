@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Techwraith/atomify.git"
+    "url": "https://github.com/atomify/atomify.git"
   },
   "keywords": [
     "atomic",
@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "atomify-css": "^1.0.0",
+    "atomify-css": "^2.0.0",
     "atomify-js": "^1.0.0",
     "browser-sync": "^0.9.1",
     "colors": "^0.6.2",
