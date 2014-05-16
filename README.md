@@ -78,6 +78,8 @@ You can provide server-specific options in this field.
 
 **opts.server.url** - Full URL to open instead of http://localhost:port/path
 
+**opts.server.local** - Use your machine's local hostname (via Node's `os.hostname()`) instead of localhost. Ideal for accessing pages from mobile devices on the same LAN. Aliased as l.
+
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
  * sync: Use BrowserSync. Aliased as s. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
