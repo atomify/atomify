@@ -80,9 +80,13 @@ You can provide server-specific options in this field.
 
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
+ * sync: Use BrowserSync. Aliased as s. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
  * port: Port for Live Reload server to run on. Default: 35729
  * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.js', '\*.css'] relative to process.cwd()
  * quiet: Suppress file change notifications on the command line. Default: false
+ * verbose: Log BrowserSync's debugInfo to the console. Default: false
+ 
+**opts.server.sync** - Shortcut for live reload with browser sync. Aliased as s.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
 
