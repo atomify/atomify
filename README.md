@@ -78,7 +78,7 @@ You can provide server-specific options in this field.
 
 **opts.server.url** - Full URL to open instead of http://localhost:port/path
 
-**opts.server.local** - Use your machine's local hostname (via Node's `os.hostname()`) instead of localhost. Ideal for accessing pages from mobile devices on the same LAN. Aliased as l.
+**opts.server.local** - Use your machine's local hostname (via Node's `os.hostname()`) instead of localhost. Ideal for accessing pages from mobile devices on the same LAN.
 
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
