@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "atomify-css": "^1.0.0",
+    "atomify-css": "^2.0.0",
     "atomify-js": "https://github.com/atomify/atomify-js/archive/minifyify.tar.gz",
     "browser-sync": "^0.9.1",
     "gaze": "^0.5.1",
