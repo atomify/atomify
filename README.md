@@ -9,6 +9,8 @@ Atomify provides a centralized point of access to [atomify-js](http://github.com
 
 ## API
 
+`atomify(opts, cb)`
+
 Just like its constituent pieces, atomify is a function that takes an `opts` object and a `callback` function.
 
 ### opts
@@ -17,11 +19,13 @@ Just like its constituent pieces, atomify is a function that takes an `opts` obj
 
 **opts.css** - Options to be passed to [atomify-css](https://github.com/techwraith/atomify-css#opts)
 
+**opts.assets** - Used to configure `opts.js.assets` and `opts.css.assets` simultaneously (and identically). See links above.
+
 **opts.server** - Options to be passed to the development server
 
 ### callback
 
-Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third parameter to denote the type of bundle being provided. `cb(err, src, type)` where type is either `'js'` or `'css'`. Not called for bundle types where `opts.{type}.output` is specified.
+Just like the callbacks used by `atomify-js` and `atomify-css`, but with a third parameter to denote the type of bundle being provided. `cb(err, src, type)` where type is either `'js'` or `'css'`.
 
 ### API Example
 
@@ -49,6 +53,8 @@ function cb (err, src, type) {
 atomify({js: jsConfig, css: cssConfig}, cb);
 ```
 
+If you don't need to access the bundled source simply provide a file path as the output property in your options and atomify will write the file for you.
+
 ### atomify.js and atomify.css
 
 As a convenience, you can access `atomify-js` and `atomify-css` via properties on the `atomify` function.
@@ -62,7 +68,7 @@ atomify.css === require('atomify-css')
 
 ## Development server
 
-Atomify includes a simple development server to enable on-the-fly bundling. `atomify.server(opts)` provides basically the same API as `atomify` itself, with a few extra options (documented below) added in. The biggest difference, of course, is that instead of writing to a file or calling a callback function, `atomify.server` responds to http requests. The server can also be configured by including a `server` property in the `opts` object when calling `atomify(opts)`.
+Atomify includes a development server that provides things like on-the-fly bundling and live reload/browser sync support to make your workflow lightning fast. `atomify.server(opts)` provides basically the same API as `atomify` itself, with a few extra options (documented below) added in. The biggest difference, of course, is that instead of writing to a file or calling a callback function, `atomify.server` responds to http requests. The server can also be configured by including a `server` property in the `opts` object when calling `atomify(opts)`.
 
 Just like with `atomify`, the options passed to `atomify.server` are expected to have a `js` and/or `css` field. When the `entry` option of either of these is requested, the server will return the results of bundling your code. If you don't want to include the actual path to your entry file in your HTML you can also provide an `alias` option field. When the alias path is requested the server will bundle using your `entry` path.
 
@@ -83,12 +89,12 @@ You can provide server-specific options in this field.
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
  * sync: Use BrowserSync. Aliased as s. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
- * port: Port for Live Reload server to run on. Default: 35729
- * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.js', '\*.css'] relative to process.cwd()
+ * port: Port for BrowserSync server to run on. Default: 3000
+ * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.css'] relative to process.cwd() as well as all files in the dependency graph of your JS and CSS bundles.
  * quiet: Suppress file change notifications on the command line. Default: false
  * verbose: Log BrowserSync's debugInfo to the console. Default: false
  
-**opts.server.sync** - Shortcut for live reload with browser sync. Aliased as s.
+**opts.server.sync** - Shortcut for specifying `opts.server.lr` as `{sync: true}`.. Aliased as s.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
 
@@ -122,11 +128,11 @@ For detailed information on configuring Rework plugins in package.json see the [
 
 ## CLI
 
-Thanks to [subarg](https://github.com/substack/subarg), nearly everything you can do in code, you can do on the command line. JS options can be specified in a `--js, -j` subarg context and CSS options can be specified in a `--css, -c` subarg context. Server options can be specified in a `--server, -s` subarg context.
+Thanks to [subarg](https://github.com/substack/subarg), nearly everything you can do in code or JSON, you can do on the command line. JS options can be specified in a `--js, -j` subarg context and CSS options can be specified in a `--css, -c` subarg context. Server options can be specified in a `--server, -s` subarg context.
 
 If you supply the `--debug, -d` or `--output, -o` args outside the `--js` and `--css` contexts they will apply to both JS and CSS bundles. When providing an `--output` argument that applies to both, omit the file extension and it will be applied correctly for you.
 
-You can also configure aliases by appending them after a `:` in your entry field.
+You can also configure aliases by appending them after a `:` in your entry field like `-j [ entry.js:/bundle.js ]`.
 
 Get a complete listing of options by running `atomify --help`
 
@@ -139,7 +145,7 @@ atomify -j [ entry.js -t funkify ] -c [ entry.css ] -o bundle
 atomify -j [ src/entry.js:bundle.js ] -c [ styles/entry.css:bundle.css ] --server [ --open ]
 ```
 
-Any top level args (js, css, server) passed on the command line will override the corresponding configuration defined in package.json.
+Any top level args (js, css, server) passed on the command line will override the corresponding configuration defined in package.json. Non-conflicting top level items will be merged with package.json configuration.
 
 ## Install
 
