@@ -46,18 +46,19 @@ test('js and css', function (t) {
   })
 })
 
-test('js output', function (t) {
-  t.plan(1)
+test('js output does not prevent callback', function (t) {
+  t.plan(2)
 
   atomify({js: {
     entry: jsCfg.entry
     , output: jsf + 'bundle-output.js'
   }, css: cssCfg}, function (err, src, type) {
-    t.equal(type, 'css')
+    if (type === 'css') t.equal(type, 'css')
+    if (type === 'js') t.equal(type, 'js')
   })
 })
 
-test('css output', function (t) {
+test('css output does prevent callback', function (t) {
   t.plan(1)
 
   atomify({js: jsCfg, css: {
