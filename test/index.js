@@ -86,3 +86,13 @@ test('css property', function (t) {
     t.equal(typeof type, 'undefined')
   })
 })
+
+test('port conflict detection', function (t) {
+  t.plan(1)
+
+  t.throws(function () {
+    atomify({
+      server: {port: 3000, lr: true}
+    })
+  })
+})
