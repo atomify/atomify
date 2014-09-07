@@ -7,6 +7,41 @@ Atomic web development - Combining the power of npm, Browserify, Rework and more
 
 Atomify provides a centralized point of access to [atomify-js](http://github.com/techwraith/atomify-js) and [atomify-css](http://github.com/techwraith/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
 
+
+## EXAMPLE
+starting `atomify` from terminal after adding the following to `package.json` will:
+
+1. watch `index.js` and all `required()` dependencies & `onchange` recompile `APP.bundle.js` + inject it into the browser (livereload)
+
+2. watch `index.css`, all `@import urls` (which can be normal urls or names of installed node packages, which specify a `"style": "<css file>"`) and `asset paths` & `onchange` recompile `APP.bundle.css` + inject it into the browser (livereload)
+
+
+```
+  "atomify": {
+    "js": {
+      "entry": "index.js",
+      "alias": "APP.bundle.js",
+      "output": "APP.bundle.js",
+      "watch": true
+    },
+    "server": {
+      "lr": {
+        "patterns": ["app/assets/stylesheets/APP.bundle.css"],
+      }
+    },
+    "css": {
+      "entry": "index.css",
+      "alias": "APP.bundle.css",
+      "output": "APP.bundle.css",
+      "watch": true
+    },
+    "assets": {
+      "dest": "/images",
+      "prefix": "/images"
+    }
+  },
+```
+
 ## API
 
 `atomify(opts, cb)`
