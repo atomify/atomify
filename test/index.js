@@ -46,6 +46,19 @@ test('js and css', function (t) {
   })
 })
 
+test('js and css, auto import', function (t) {
+  t.plan(2)
+
+  atomify({js: jsf + 'entry-auto.js', css: 'auto'}, function (err, src, type) {
+    if (src === read(jsf + 'bundle-auto.js')) {
+      t.equal(type, 'js')
+    }    
+    if (src === read(cssf + 'bundle.css')) {
+      t.equal(type, 'css')
+    }
+  })
+})
+
 test('js output does not prevent callback', function (t) {
   t.plan(2)
 
