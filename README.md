@@ -1,6 +1,8 @@
 Atomify
 ===============
 
+[![Build Status](https://travis-ci.org/atomify/atomify.svg)](https://travis-ci.org/atomify/atomify)
+
 Atomic web development - Combining the power of npm, Browserify, Rework and more to build small, fully encapsulated client side modules
 
 ## Description
@@ -93,7 +95,7 @@ You can provide server-specific options in this field.
  * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.css'] relative to process.cwd() as well as all files in the dependency graph of your JS and CSS bundles.
  * quiet: Suppress file change notifications on the command line. Default: false
  * verbose: Log BrowserSync's debugInfo to the console. Default: false
- 
+
 **opts.server.sync** - Shortcut for specifying `opts.server.lr` as `{sync: true}`.. Aliased as s.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
