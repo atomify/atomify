@@ -1,7 +1,7 @@
 test
 
-
 .git*
 .npmignore
 .travis.yml
 npm-debug.log
+lib/_bundle.js
