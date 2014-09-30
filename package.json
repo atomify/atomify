@@ -31,7 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "atomify-css": "^3.0.0",
-    "atomify-js": "^2.4.1",
+    "atomify-js": "^3.0.0",
     "browser-sync": "^0.9.1",
     "colors": "^0.6.2",
     "gaze": "^0.5.1",

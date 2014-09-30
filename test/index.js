@@ -4,6 +4,7 @@ var test = require('tape')
   , jsf = path.join(__dirname, 'fixtures', 'js/')
   , cssf = path.join(__dirname, 'fixtures', 'css/')
   , fs = require('fs')
+  , dep = require('./fixtures/js/dep.js')
   , read = function (file) {
     return fs.readFileSync(file, 'utf8')
   }
@@ -21,7 +22,7 @@ test('js only', function (t) {
 
   atomify({js: jsCfg}, function (err, src, type) {
     t.error(err, 'does not error')
-    t.equal(src, read(path.join(jsf, '/bundle.js')))
+    t.ok(src.toString().indexOf(dep) > -1, 'output contains the dep')
     t.equal(type, 'js')
   })
 })
@@ -40,12 +41,12 @@ test('js and css', function (t) {
   t.plan(4)
 
   atomify({js: jsCfg, css: cssCfg}, function (err, src, type) {
-    if (src === read(path.join(jsf, 'bundle.js'))) {
-      t.error(err, 'does not error')
+    if (src.toString().indexOf(dep) > -1) {
+      t.error(err, 'js does not error')
       t.equal(type, 'js')
     }
     if (src === read(path.join(cssf, 'bundle.css'))) {
-      t.error(err, 'does not error')
+      t.error(err, 'css does not error')
       t.equal(type, 'css')
     }
   })
@@ -88,7 +89,7 @@ test('js property', function (t) {
 
   atomify.js(jsCfg.entry, function (err, src, type) {
     t.error(err, 'does not error')
-    t.equal(src, read(path.join(jsf, 'bundle.js')))
+    t.ok(src.toString().indexOf(dep) > -1, 'output contains the depedency')
     t.equal(typeof type, 'undefined')
   })
 })
