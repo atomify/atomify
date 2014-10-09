@@ -5,3 +5,9 @@ test
 .travis.yml
 npm-debug.log
 lib/_bundle.js
+
+
+.editorconfig
+.jscsrc
+.jshint*
+CONTRIBUTING.*
