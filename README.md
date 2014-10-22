@@ -1,5 +1,6 @@
 Atomify
 ===============
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/atomify/atomify?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Atomic web development - Combining the power of npm, Browserify, Rework and more to build small, fully encapsulated client side modules
 
