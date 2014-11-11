@@ -38,7 +38,7 @@
     "open": "0.0.5",
     "st": "~0.3.1",
     "subarg": "0.0.1",
-    "through": "^2.3.4",
+    "through": "^2.3.6",
     "tiny-lr-fork": "0.0.5",
     "write-to-path": "~0.1.0"
   },
