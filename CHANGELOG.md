@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.2
+Update all dependencies except gaze because the latest gaze breaks on linux.
+
 ## 6.0.1
 Bug fix: `hbsfy` is no longer a peer dependency because of the `atomify-js` upgrade.
 
