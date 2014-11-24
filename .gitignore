@@ -2,3 +2,4 @@ node_modules
 .idea
 lib/_bundle.js
 *bundle-output*
+.DS_Store
