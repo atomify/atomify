@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.0.3
+Fix missing color module
+
 ## 6.0.2
 Update all dependencies except gaze because the latest gaze breaks on linux.
 
