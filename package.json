@@ -32,7 +32,7 @@
   "dependencies": {
     "atomify-css": "^3.2.1",
     "atomify-js": "^4.0.0",
-    "browser-sync": "^1.6.5",
+    "browser-sync": "^1.7.1",
     "colors": "^1.0.3",
     "gaze": "^0.6.4",
     "open": "0.0.5",
