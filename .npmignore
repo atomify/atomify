@@ -11,3 +11,6 @@ lib/_bundle.js
 .jscsrc
 .jshint*
 CONTRIBUTING.*
+
+.DS_Store
+CHANGELOG.*
