@@ -29,12 +29,15 @@
     "Ben Clinkinbeard <ben.clinkinbeard@gmail.com> (http://benclinkinbeard.com/)"
   ],
   "license": "MIT",
+  "----dependencyNotes----": {
+    "gaze": "0.6 is greatly broken on *nix"
+  },
   "dependencies": {
     "atomify-css": "^3.2.1",
     "atomify-js": "^4.0.0",
     "browser-sync": "^1.7.1",
     "colors": "^1.0.3",
-    "gaze": "^0.6.4",
+    "gaze": "~0.5.1",
     "open": "0.0.5",
     "st": "^0.5.2",
     "subarg": "^1.0.0",
