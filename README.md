@@ -132,6 +132,98 @@ In order to support atomify turtles all the way down, you can also specify your 
 
 For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/Techwraith/atomify-css#packagejson-config) of the atomify-css README.
 
+## Mini Tutorial
+### How to build a re-usable component
+(__Warning:__ _The following example is only interesting from a technical and not at all from an esthetical perspective)_
+1. __Scaffold component project structure__
+  * `componentA/`
+    * `RELEASE/`
+    * `SOURCE/`
+      * `assets/`
+      * `index.css`
+      * `index.js`
+      * `index.template.html`
+    * `index.html`
+    * `package.json`
+2. __Install atomify__
+  * `npm install --save-dev atomify`
+3. __Scaffold the component__
+  * `echo '<svg xmlns="http://www.w3.org/2000/svg"><polyline fill="#cf9" points="15,0 30,30 0,30"/></svg>' > ./SOURCE/arrow.svg`
+  * `echo '.ComponentA__icon {background-color:#f00;}' > ./SOURCE/extra.css`
+  * `echo '@import "./extra.css";.ComponentA::before { content: url(arrow.svg);}' > ./SOURCE/index.css`
+  * `echo 'requestAnimationFrame(function(){document.querySelector("body").innerHTML = require("./index.template.html");});' > ./SOURCE/index.js`
+  * `echo '<div class="ComponentA">foobar <img class="ComponentA__icon" src="arrow.svg"></div>' > ./SOURCE/index.template.html`
+4. __Fill in at least the following content into__
+  * `./package.json`
+  ```json
+    {
+      "name": "componentA",
+      "version": "1.0.0",
+      "description": "",
+      "scripts": {
+        "start": "atomify"
+      },
+      "atomify": {
+        "server": {
+          "open": true,
+          "path": "index.html",
+          "lr": {
+            "verbose": true,
+            "quiet": false,
+            "port": 31337,
+            "sync": true
+          }
+        },
+        "js": {
+          "entry": "SOURCE/index.js",
+          "alias": "RELEASE/APP.bundle.js",
+          "output": "RELEASE/APP.bundle.js",
+          "debug": true,
+          "transforms": []
+        },
+        "css": {
+          "entry": "SOURCE/index.css",
+          "alias": "RELEASE/APP.bundle.css",
+          "output": "RELEASE/APP.bundle.css",
+          "debug": true,
+          "watch": true,
+          "compress": true,
+          "plugin": [],
+          "variables": {}
+        },
+        "assets": {
+          "dest": "RELEASE/assets/",
+          "prefix": "/RELEASE/assets/",
+          "retainName": false
+        }
+      }
+    }
+  ```
+5. Create the __"Live Styleguide"__ to preview and test the component
+  * `./index.html`
+  ```html
+    <link rel='stylesheet' href='RELEASE/APP.bundle.css'>
+    <script src='RELEASE/APP.bundle.js'></script>
+    <script type="text/javascript" id="__bs_script__">
+      //<![CDATA[
+        document.write("<script async src='/browser-sync/browser-sync-client.1.9.1.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+      //]]>
+    </script>
+  ```
+6. start developing by executing:
+  * `npm start`
+
+#### How it works
+  * __Atomify turtles all the way down :-)__, which means:
+
+    1. It will watch `index.js` and all `required()` __javascript__ and __template__ files
+    and also `index.css` and all `@import urls` _(which can be normal urls or names of other __npm installed components__ similar to the current one)._
+
+    2. It will then `onchange` recompile `APP.bundle.js` and `APP.bundle.css` and inject it live into __LiveStyleGuide__ @ `./index.html`,
+    which makes it very convenient in combination with [Github Pages](https://pages.github.com/). (check out how to set up a [__Project site__](https://pages.github.com/)),
+    in order to _test_ & _demo_ the component to other developers
+
+
 ## CLI
 
 Thanks to [subarg](https://github.com/substack/subarg), nearly everything you can do in code or JSON, you can do on the command line. JS options can be specified in a `--js, -j` subarg context and CSS options can be specified in a `--css, -c` subarg context. Server options can be specified in a `--server, -s` subarg context.
