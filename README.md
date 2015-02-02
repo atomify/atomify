@@ -135,24 +135,23 @@ For detailed information on configuring Rework plugins in package.json see the [
 ## Mini Tutorial
 ### How to build a re-usable component
 (__Warning:__ _The following example is only interesting from a technical and not at all from an esthetical perspective)_
+
 1. __Scaffold component project structure__
   * `componentA/`
-    * `RELEASE/`
     * `SOURCE/`
-      * `assets/`
-      * `index.css`
-      * `index.js`
-      * `index.template.html`
     * `index.html`
     * `package.json`
+
 2. __Install atomify__
-  * `npm install --save-dev atomify`
+  * `npm install --save-dev serapath/atomify`
+
 3. __Scaffold the component__
   * `echo '<svg xmlns="http://www.w3.org/2000/svg"><polyline fill="#cf9" points="15,0 30,30 0,30"/></svg>' > ./SOURCE/arrow.svg`
   * `echo '.ComponentA__icon {background-color:#f00;}' > ./SOURCE/extra.css`
   * `echo '@import "./extra.css";.ComponentA::before { content: url(arrow.svg);}' > ./SOURCE/index.css`
   * `echo 'requestAnimationFrame(function(){document.querySelector("body").innerHTML = require("./index.template.html");});' > ./SOURCE/index.js`
   * `echo '<div class="ComponentA">foobar <img class="ComponentA__icon" src="arrow.svg"></div>' > ./SOURCE/index.template.html`
+
 4. __Fill in at least the following content into__
   * `./package.json`
   ```json
@@ -199,6 +198,7 @@ For detailed information on configuring Rework plugins in package.json see the [
       }
     }
   ```
+
 5. Create the __"Live Styleguide"__ to preview and test the component
   * `./index.html`
   ```html
@@ -210,6 +210,7 @@ For detailed information on configuring Rework plugins in package.json see the [
       //]]>
     </script>
   ```
+
 6. start developing by executing:
   * `npm start`
 
