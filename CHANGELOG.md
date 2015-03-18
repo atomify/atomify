@@ -1,5 +1,8 @@
 # Changelog
 
+## 6.1.0
+* Added css & assets watch mode (@serapath)
+
 ## 6.0.4
 * fix race condition in server, should prevent random server crashes
 * revert gaze to 0.5, because 0.6 is the suck
