@@ -13,6 +13,10 @@ Atomic web development - Combining the power of npm, Browserify, Rework and more
 
 Atomify provides a centralized point of access to [atomify-js](http://github.com/techwraith/atomify-js) and [atomify-css](http://github.com/techwraith/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
 
+## Examples
+
+You can learn from examples in [this repository](https://github.com/atomify/atomify-examples)
+
 ## API
 
 `atomify(opts, cb)`
