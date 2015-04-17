@@ -5,7 +5,7 @@ Atomic web development - Combining the power of npm, Browserify, Rework and more
 
 ## Description
 
-Atomify provides a centralized point of access to [atomify-js](http://github.com/techwraith/atomify-js) and [atomify-css](http://github.com/techwraith/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
+Atomify provides a centralized point of access to [atomify-js](http://github.com/atomify/atomify-js) and [atomify-css](http://github.com/atomify/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
 
 ## Examples
 
@@ -19,9 +19,9 @@ Just like its constituent pieces, atomify is a function that takes an `opts` obj
 
 ### opts
 
-**opts.js** - Options to be passed to [atomify-js](https://github.com/techwraith/atomify-js#opts)
+**opts.js** - Options to be passed to [atomify-js](https://github.com/atomify/atomify-js#opts)
 
-**opts.css** - Options to be passed to [atomify-css](https://github.com/techwraith/atomify-css#opts)
+**opts.css** - Options to be passed to [atomify-css](https://github.com/atomify/atomify-css#opts)
 
 **opts.assets** - Used to configure `opts.js.assets` and `opts.css.assets` simultaneously (and identically). See links above.
 
@@ -92,15 +92,38 @@ You can provide server-specific options in this field.
 
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
- * sync: Use BrowserSync. Aliased as s. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
+ * sync: Use BrowserSync. Aliased as `s`. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
  * port: Port for BrowserSync server to run on. Default: 3000
- * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.css'] relative to process.cwd() as well as all files in the dependency graph of your JS and CSS bundles.
+ * patterns: Globbing patterns to pass to [browsersync](https://www.npmjs.org/package/browser-sync) for watching. Default: `['**.html']` relative to `process.cwd()` as well as all files in the dependency graph of your JS and CSS bundles.
  * quiet: Suppress file change notifications on the command line. Default: false
  * verbose: Log BrowserSync's debugInfo to the console. Default: false
 
 **opts.server.sync** - Shortcut for specifying `opts.server.lr` as `{sync: true}`.. Aliased as s.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
+
+**opts.server.html** - Override the default HTML served at `/default`. Pass either a filepath or a function.
+
+If you pass a function, you'll be passed one options argument with the urls to the bundled JS and CSS. You should insert those into your HTML, and return a string.
+
+```js
+{
+  server: {
+    html: function html (paths, done){
+      // it's important to include the body tags so that the livereload snippet from browsersync can be inserted
+      var html = '<body>'
+        + '<link rel="stylesheet" href="' + paths.css + '">'
+        + '<script src="' + paths.js + '"></script>'
+        + '</body>'
+
+      // you can return an error if something went wrong
+      done(null, html)
+    }
+  }
+}
+```
+
+If you pass a filepath, the bundled JS and CSS will automatically be inserted at the bottom of your file. However, you can place the strings `__ATOMIFY_CSS__` and `__ATOMIFY_JS__` when you want the relevant paths inserted to override this behavior.
 
 ## package.json config
 
@@ -128,7 +151,7 @@ In order to support atomify turtles all the way down, you can also specify your 
 }
 ```
 
-For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/Techwraith/atomify-css#packagejson-config) of the atomify-css README.
+For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/atomify/atomify-css#packagejson-config) of the atomify-css README.
 
 ## CLI
 
