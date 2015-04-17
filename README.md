@@ -102,6 +102,29 @@ You can provide server-specific options in this field.
 
 **opts.server.st** - Options to pass to [st](https://www.npmjs.org/package/st) static file server, which is what serves all non-entry/alias requests.
 
+**opts.server.html** - Override the default HTML served at `/default`. Pass either a filepath or a function.
+
+If you pass a function, you'll be passed one options argument with the urls to the bundled JS and CSS. You should insert those into your HTML, and return a string.
+
+```js
+{
+  server: {
+    html: function html (paths, done){
+      // it's important to include the body tags so that the livereload snippet from browsersync can be inserted
+      var html = '<body>'
+        + '<link rel="stylesheet" href="' + paths.css + '">'
+        + '<script src="' + paths.js + '"></script>'
+        + '</body>'
+
+      // you can return an error if something went wrong
+      done(null, html)
+    }
+  }
+}
+```
+
+If you pass a filepath, the bundled JS and CSS will automatically be inserted at the bottom of your file. However, you can place the strings `__ATOMIFY_CSS__` and `__ATOMIFY_JS__` when you want the relevant paths inserted to override this behavior.
+
 ## package.json config
 
 In order to support atomify turtles all the way down, you can also specify your configuration in package.json. Simply recreate an `opts` object structure in JSON with atomify as the key. (Omit output properties if not a top level package.)
