@@ -35,7 +35,6 @@
   "dependencies": {
     "atomify-css": "^3.2.1",
     "atomify-js": "^4.0.0",
-    "gaze": "~0.5.1",
     "browser-sync": "^2.6.4",
     "open": "0.0.5",
     "st": "^0.5.2",

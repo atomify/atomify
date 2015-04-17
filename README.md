@@ -94,7 +94,7 @@ You can provide server-specific options in this field.
 
  * sync: Use BrowserSync. Aliased as `s`. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
  * port: Port for BrowserSync server to run on. Default: 3000
- * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.css'] relative to process.cwd() as well as all files in the dependency graph of your JS and CSS bundles.
+ * patterns: Globbing patterns to pass to [browsersync](https://www.npmjs.org/package/browser-sync) for watching. Default: `['**.html']` relative to `process.cwd()` as well as all files in the dependency graph of your JS and CSS bundles.
  * quiet: Suppress file change notifications on the command line. Default: false
  * verbose: Log BrowserSync's debugInfo to the console. Default: false
 
