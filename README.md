@@ -5,7 +5,7 @@ Atomic web development - Combining the power of npm, Browserify, Rework and more
 
 ## Description
 
-Atomify provides a centralized point of access to [atomify-js](http://github.com/techwraith/atomify-js) and [atomify-css](http://github.com/techwraith/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
+Atomify provides a centralized point of access to [atomify-js](http://github.com/atomify/atomify-js) and [atomify-css](http://github.com/atomify/atomify-css) both in code and on the command line. It also offers a server with live-reload and on-the-fly bundling support to make development a breeze.
 
 ## Examples
 
@@ -19,9 +19,9 @@ Just like its constituent pieces, atomify is a function that takes an `opts` obj
 
 ### opts
 
-**opts.js** - Options to be passed to [atomify-js](https://github.com/techwraith/atomify-js#opts)
+**opts.js** - Options to be passed to [atomify-js](https://github.com/atomify/atomify-js#opts)
 
-**opts.css** - Options to be passed to [atomify-css](https://github.com/techwraith/atomify-css#opts)
+**opts.css** - Options to be passed to [atomify-css](https://github.com/atomify/atomify-css#opts)
 
 **opts.assets** - Used to configure `opts.js.assets` and `opts.css.assets` simultaneously (and identically). See links above.
 
@@ -92,7 +92,7 @@ You can provide server-specific options in this field.
 
 **opts.server.lr** - Enables live-reload support by injecting the live-reload script into any HTML pages served. Supports the following sub-properties.
 
- * sync: Use BrowserSync. Aliased as s. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
+ * sync: Use BrowserSync. Aliased as `s`. If provided as an object will be used as the [ghostMode](https://github.com/shakyShane/browser-sync/wiki/options#ghostmode) option for BrowserSync.
  * port: Port for BrowserSync server to run on. Default: 3000
  * patterns: Globbing patterns to pass to [gaze](https://www.npmjs.org/package/gaze) for watching. Default: ['\*.html', '\*.css'] relative to process.cwd() as well as all files in the dependency graph of your JS and CSS bundles.
  * quiet: Suppress file change notifications on the command line. Default: false
@@ -151,7 +151,7 @@ In order to support atomify turtles all the way down, you can also specify your 
 }
 ```
 
-For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/Techwraith/atomify-css#packagejson-config) of the atomify-css README.
+For detailed information on configuring Rework plugins in package.json see the [relevant section](https://github.com/atomify/atomify-css#packagejson-config) of the atomify-css README.
 
 ## CLI
 
