@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.0.1
+* fix: server: only try to render custom default html if passed the `html` option.
+
 ## 7.0.0
 * breaking: server: we no longer watch all css files under the cwd. Only the entry file and it's dependencies
 * add: server: enables setting the HTML that will be served at `/default` by either file or function. Super useful if you want to server-render.
