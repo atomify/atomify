@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.0.2
+* fix: server: better custom default html if no option passed. #oops
+
 ## 7.0.1
 * fix: server: only try to render custom default html if passed the `html` option.
 
