@@ -33,10 +33,12 @@
     "gaze": "0.6 is greatly broken on *nix"
   },
   "dependencies": {
+    "ansi-to-html": "^0.3.0",
     "atomify-css": "^3.2.1",
     "atomify-js": "^4.0.0",
     "browser-sync": "^2.6.4",
     "open": "0.0.5",
+    "prettify-error": "^0.1.1",
     "st": "^0.5.2",
     "subarg": "^1.0.0",
     "through": "^2.3.6",
