@@ -126,6 +126,8 @@ If you pass a function, you'll be passed one options argument with the urls to t
 
 If you pass a filepath, the bundled JS and CSS will automatically be inserted at the bottom of your file. However, you can place the strings `__ATOMIFY_CSS__` and `__ATOMIFY_JS__` when you want the relevant paths inserted to override this behavior.
 
+**opts.server.spaMode** - When set to `true`, the default HTML will always be served. This is useful for single page apps that have a router.
+
 ## package.json config
 
 In order to support atomify turtles all the way down, you can also specify your configuration in package.json. Simply recreate an `opts` object structure in JSON with atomify as the key. (Omit output properties if not a top level package.)
