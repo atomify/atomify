@@ -113,6 +113,7 @@ If you pass a function, you'll be passed one options argument with the urls to t
       // it's important to include the body tags so that the livereload snippet from browsersync can be inserted
       var html = '<body>'
         + '<link rel="stylesheet" href="' + paths.css + '">'
+        + '<h1>your current url ' + paths.request + '</h1>'
         + '<script src="' + paths.js + '"></script>'
         + '</body>'
 
@@ -124,6 +125,8 @@ If you pass a function, you'll be passed one options argument with the urls to t
 ```
 
 If you pass a filepath, the bundled JS and CSS will automatically be inserted at the bottom of your file. However, you can place the strings `__ATOMIFY_CSS__` and `__ATOMIFY_JS__` when you want the relevant paths inserted to override this behavior.
+
+**opts.server.spaMode** - When set to `true`, the default HTML will always be served. This is useful for single page apps that have a router.
 
 ## package.json config
 
