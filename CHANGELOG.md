@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.1.0
+* add: server: add a "single page app mode" so all routes trigger the default HTML
+* add: server: custom html function is now passed the requested url (this is handy in single page app mode)
+* add: server: custom HTML gets much prettier errors, both to the shell and the browser
+
 ## 7.0.2
 * fix: server: better custom default html if no option passed. #oops
 
