@@ -113,6 +113,7 @@ If you pass a function, you'll be passed one options argument with the urls to t
       // it's important to include the body tags so that the livereload snippet from browsersync can be inserted
       var html = '<body>'
         + '<link rel="stylesheet" href="' + paths.css + '">'
+        + '<h1>your current url ' + paths.request + '</h1>'
         + '<script src="' + paths.js + '"></script>'
         + '</body>'
 
