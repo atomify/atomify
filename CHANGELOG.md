@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.1.1
+* add: server: cache prettified error for minor speed increase
+* fix: server: when showing error output in html, browser-sync now works
+* internal: dependcy versions were bumped. Only minor and patch changes.
+
 ## 7.1.0
 * add: server: add a "single page app mode" so all routes trigger the default HTML
 * add: server: custom html function is now passed the requested url (this is handy in single page app mode)
