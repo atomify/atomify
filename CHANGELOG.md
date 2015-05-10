@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.1.2
+* fix: server: if js or css fails to compile, the error no longer throws and causes the process to exit. Instad, we're printing the error to the shell
+
 ## 7.1.1
 * add: server: cache prettified error for minor speed increase
 * fix: server: when showing error output in html, browser-sync now works
