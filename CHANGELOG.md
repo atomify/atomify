@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.1.3
+* fix: server: fallback if fancy error reporting fails
+
 ## 7.1.2
 * fix: server: if js or css fails to compile, the error no longer throws and causes the process to exit. Instad, we're printing the error to the shell
 
