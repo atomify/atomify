@@ -40,6 +40,7 @@
     "open": "0.0.5",
     "prettify-error": "^0.1.1",
     "st": "^0.5.3",
+    "style-format": "0.0.0",
     "subarg": "^1.0.0",
     "through": "^2.3.7",
     "tiny-lr-fork": "0.0.5",
