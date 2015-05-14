@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.2.0
+* add: Server can now deal with the special snowflake babel errors.
+* add: Server now just logs compilation errors, instead of exiting
+
 ## 7.1.3
 * fix: server: fallback if fancy error reporting fails
 
