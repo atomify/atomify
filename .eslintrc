@@ -1,34 +1,6 @@
 {
-  "plugins": [
-    "react"
-  ],
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "binaryLiterals": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
-    "generators": true,
-    "modules": false,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "octalLiterals": true,
-    "regexUFlag": true,
-    "regexYFlag": true,
-    "superInFunctions": true,
-    "templateStrings": true,
-    "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": true
-  },
   "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
+    "node": true
   },
   "rules": {
     "no-comma-dangle": 2,
@@ -237,17 +209,6 @@
         ]
       }
     ],
-    "wrap-regex": 0,
-
-    "react/display-name": 1,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
-    "react/no-did-mount-set-state": 1,
-    "react/no-did-update-set-state": 1,
-    "react/no-multi-comp": 2,
-    "react/prop-types": 2,
-    "react/react-in-jsx-scope": 2,
-    "react/self-closing-comp": 1,
-    "react/wrap-multilines": 2
+    "wrap-regex": 0
   }
 }
