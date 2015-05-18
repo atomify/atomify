@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.2.2
+* internal: fixup eslint
+* internal: abstract out htmlifyError. This is nice because it means external libs can print out errors in the same way atomify does. This might be useful if you want to handle an error making custom HTML on your own.
+
 ## 7.2.1
 * fix: server custom html now correctly replaces JS and CSS
 
