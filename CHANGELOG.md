@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.2.1
+* fix: server custom html now correctly replaces JS and CSS
+
 ## 7.2.0
 * add: Server can now deal with the special snowflake babel errors.
 * add: Server now just logs compilation errors, instead of exiting
