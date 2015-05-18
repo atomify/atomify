@@ -1,6 +1,6 @@
 {
   "name": "atomify",
-  "version": "7.2.1",
+  "version": "7.2.2",
   "description": "Atomic web development - Combining the power of npm, Browserify, Rework and more to build small, fully encapsulated client side modules",
   "main": "index.js",
   "bin": {
