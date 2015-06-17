@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.3.0
+* add: now notifies both in the browser and the shell when CSS files are changed. We were already doing this for JS, so now for CSS too.
+
 ## 7.2.3
 * fix: remove undocumented `resourcePaths` feature from CLI so that LESS will work. #82
 
