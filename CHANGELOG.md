@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.3.1
+* Upgrade to [atomify-js 4.7.3](https://github.com/atomify/atomify-js/blob/master/CHANGELOG.md#473)
+
 ## 7.3.0
 * add: now notifies both in the browser and the shell when CSS files are changed. We were already doing this for JS, so now for CSS too.
 
